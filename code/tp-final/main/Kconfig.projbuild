@@ -1,0 +1,44 @@
+menu "Práctica 1 Configuration"
+
+        config BLINK_GPIO
+            int "Blink GPIO number"
+            range 0 34
+            default 2
+            help
+                GPIO number (IOxx) to blink on and off.
+                Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to blink.
+                GPIOs 35-39 are input-only so cannot be used as outputs.
+
+        config ESP_WIFI_SSID
+            string "SSID Wifi"
+            default "Nombre de la red"
+
+        config ESP_WIFI_PASS
+            string "PASS Wifi"
+            default "Password de la red"
+
+          config PORT_MQTT
+              int "MQTT Port number"
+              range 1025 60000
+              default 1883
+              help
+                  MQTT Port number
+                  Default Port number 1883
+                  Range 1025-60000
+
+          config IP_BROKER_MQTT
+              string  "MQTT Broker adrress"
+              default "test.mosquitto.org"
+              help
+                  MQTT Broker IP adrres or domain
+                  Default "test.mosquitto.org"
+
+          config TEST_DELAY_MS
+              int  "Delay [miliseconds]"
+              default 500
+
+          config TEST_MESSAGE
+              string  "Message from menuconfig"
+              default "Message from menuconfig"
+
+endmenu
